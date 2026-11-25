@@ -176,7 +176,8 @@
         "send_holds_lock_before_claim",
         "claim_commits_before_dispatch",
         "polling_two_tabs",
-        "poll_error_and_refocus"
+        "poll_error_and_refocus",
+        "operator_command_retry"
       ],
       "setup_note": "Use per-variant setup: confirmation cases require a pending action, handover cases require a queued or claimed request; do not execute the listed messages without the stated fixture state."
     },
@@ -208,7 +209,8 @@
         "purge_protected_fields",
         "expiry_during_human_ownership",
         "aggregate_without_identifiers",
-        "restore_expiry_reconciliation"
+        "restore_expiry_reconciliation",
+        "expired_content_cleared"
       ],
       "setup_note": "Create contacts A and B, a request belonging to A, role-scoped operators and unique synthetic sensitive markers before exercising endpoints and capturing logs."
     },
