@@ -1,2 +1,9 @@
-import { defineConfig } from 'vitest/config';
-export default defineConfig({test: {fileParallelism: false, testTimeout: 15000, hookTimeout: 90000}});
+import { defineConfig } from "vitest/config";
+export default defineConfig({
+  test: {
+    include: ["tests/*.test.ts"],
+    fileParallelism: false,
+    testTimeout: 15000,
+    hookTimeout: 90000,
+  },
+});

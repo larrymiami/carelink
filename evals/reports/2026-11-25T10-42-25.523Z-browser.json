@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1",
+  "run_id": "2026-11-25T10-42-25.523Z",
+  "evidence_type": "browser",
+  "commit": "a639d058f41aa629174ac872c4c023f93932a672",
+  "dirty_tree": true,
+  "fixture_clock": "2026-11-25T09:00:00+03:00 plus elapsed time",
+  "runner_exit_code": 0,
+  "overall_gate": "incomplete",
+  "model_eval": "not_run",
+  "live_meta": "not_run",
+  "totals": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0
+  },
+  "checks": [
+    {
+      "name": "AC-01/base service lookup clarifies and exposes source provenance",
+      "case": "AC-01",
+      "variant": "base",
+      "status": "passed",
+      "duration_ms": 4817,
+      "attempts": 1
+    },
+    {
+      "name": "AC-02/missing_fee honest fallback does not create a request",
+      "case": "AC-02",
+      "variant": "missing_fee",
+      "status": "passed",
+      "duration_ms": 443,
+      "attempts": 1
+    },
+    {
+      "name": "AC-03/base callback confirmation, officer handover, reply and resolution",
+      "case": "AC-03",
+      "variant": "base",
+      "status": "passed",
+      "duration_ms": 12885,
+      "attempts": 1
+    },
+    {
+      "name": "AC-04/cancel_pending cancel creates no queued request",
+      "case": "AC-04",
+      "variant": "cancel_pending",
+      "status": "passed",
+      "duration_ms": 4506,
+      "attempts": 1
+    },
+    {
+      "name": "AC-06/two_operator_claims competing sessions yield one owner",
+      "case": "AC-06",
+      "variant": "two_operator_claims",
+      "status": "passed",
+      "duration_ms": 6753,
+      "attempts": 1
+    },
+    {
+      "name": "AC-06/poll_error_and_refocus inbox exposes stale state and recovers",
+      "case": "AC-06",
+      "variant": "poll_error_and_refocus",
+      "status": "passed",
+      "duration_ms": 1066,
+      "attempts": 1
+    },
+    {
+      "name": "AC-07/contact_B_guesses_contact_A_request sessions isolate contacts and keep API tokens server-side",
+      "case": "AC-07",
+      "variant": "contact_B_guesses_contact_A_request",
+      "status": "passed",
+      "duration_ms": 2714,
+      "attempts": 1
+    },
+    {
+      "name": "mobile simulator remains within viewport",
+      "case": null,
+      "variant": null,
+      "status": "passed",
+      "duration_ms": 310,
+      "attempts": 1
+    },
+    {
+      "name": "AC-07/expired_content_cleared simulator removes cached transcript on expiry",
+      "case": "AC-07",
+      "variant": "expired_content_cleared",
+      "status": "passed",
+      "duration_ms": 4481,
+      "attempts": 1
+    }
+  ]
+}

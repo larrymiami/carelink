@@ -2,7 +2,7 @@
 
 CareLink helps community health programmes answer service questions and coordinate human follow-up over WhatsApp.
 
-The first backend increment provides administrative service lookup, explicit callback consent, a durable processing worker and an operator handover API. It uses PostgreSQL for application data, jobs and the transactional outbox.
+CareLink includes a conversation simulator and operator inbox backed by administrative service lookup, explicit callback consent and a durable processing worker. It uses PostgreSQL for application data, jobs and the transactional outbox.
 
 ## Current capabilities
 
@@ -15,8 +15,11 @@ The first backend increment provides administrative service lookup, explicit cal
 - Token-protected sample and operator APIs, incremental inbox changes and explicit resolution/resumption.
 - Retention guards, repeatable purge, pseudonymous deduplication tombstones and aggregate audit counts.
 - JSON/Markdown verification reports generated from actual automated test results.
+- A responsive Next.js and Material UI workspace with source inspection, confirmation buttons and transcript status.
+- A two-second polling inbox with officer sign-in, claim conflicts, replies, resolution and explicit return to automation.
+- Server-managed signed sessions and same-origin mutation checks; API tokens stay on the server.
 
-**Development status:** API and worker implementation with a sample transport. The browser simulator/operator interface, direct Meta adapter and LLM integration are next increments. No real WhatsApp messages are sent. Sample API routes accept only `sample-*` contact references. This increment refuses to start outside explicit sample mode.
+**Development status:** Browser workspace, API and worker implementation with a sample transport. Direct Meta integration and LLM retrieval/evaluations remain upcoming work. No real WhatsApp messages are sent. Sample API routes accept only `sample-*` contact references. The workspace requires explicit sample mode.
 
 ## Run locally
 
@@ -41,7 +44,15 @@ In a third terminal:
 npm run worker:dev
 ```
 
-The API binds to `127.0.0.1:3001`. Setup generates independent local credentials in an ignored `.env`, without printing them. Never copy those credentials into source control or a browser bundle. Alternatively configure your own PostgreSQL instance and use `.env.example` as a reference. Supported commands are package scripts and can also be invoked with `pnpm run <script>`; npm is the locked installation path for this increment.
+In a fourth terminal:
+
+```sh
+npm run web:dev
+```
+
+Open `http://127.0.0.1:3000` for the simulator. The operator inbox is at `/inbox`; choose Officer One or Officer Two and use `DEMO_LOGIN_PASSWORD` from your local `.env`. `setup:local` adds missing web settings to an existing configuration without replacing existing secrets. Keep the URL consistent with `WEB_ORIGIN`, including hostname and port.
+
+The API binds to `127.0.0.1:3001`. Setup generates independent local credentials in an ignored `.env`, without printing them. The web server forwards requests using server-only credentials and binds each simulator session to its own synthetic contact. The workspace password is a local sample login mechanism; production organisation login and role administration remain separate work. Set `COOKIE_SECURE=true` when using HTTPS. Alternatively configure your own PostgreSQL instance and use `.env.example` as a reference. Supported commands are package scripts and can also be invoked with `pnpm run <script>`; npm is the locked installation path.
 
 ## Verify
 
@@ -50,13 +61,23 @@ npm run typecheck
 npm run test:report
 ```
 
+Browser verification requires a production web build and a Playwright browser:
+
+```sh
+npm run web:build
+npx playwright install chromium
+npm run test:browser:report
+```
+
+Or run `npm run verify:report` after installing the browser. Browser tests start their own temporary PostgreSQL, API, worker and web server; stop existing services on ports 3000 and 3001 first. Both report types separate executed evidence from remaining model/provider work. On Linux, `PLAYWRIGHT_CHROMIUM_EXECUTABLE` can select an already installed compatible Chromium binary.
+
 Tests create an isolated temporary PostgreSQL cluster and never use `DATABASE_URL`. `test:report` writes timestamped files under `evals/reports/`. Reports show executed checks separately from missing variant coverage. An incomplete gate is expected while browser/model/provider work remains. No model API keys or tokens are used by this increment.
 
 The sample fixture deliberately includes source expiry. Tests inject a fixed clock; the running service uses real time. Maintain sample review/validity dates when using the directory after its current validity interval; the application must not silently promote expired content to current content.
 
 ## API walkthrough
 
-Read the generated sample and operator tokens from your local `.env` using your API client. Use bearer authentication. Keep operator tokens server-side when the browser interface is added; these initial API tokens are not a browser login design.
+The browser workspace is the primary way to exercise the flow. For direct API work, read sample and operator tokens from your local `.env` using your API client and use bearer authentication. These tokens remain server-side in the web application; the browser uses signed HttpOnly session cookies.
 
 | Request | Purpose |
 |---|---|

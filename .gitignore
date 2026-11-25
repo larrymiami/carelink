@@ -5,3 +5,7 @@ node_modules/
 .tmp/
 coverage/
 *.log
+.next/
+test-results/
+playwright-report/
+*.tsbuildinfo
