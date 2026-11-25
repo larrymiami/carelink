@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.1",
+  "sample_data": true,
+  "programme": {
+    "id": "community-access-sample",
+    "name": "Community Access",
+    "timezone": "Africa/Nairobi",
+    "language": "en",
+    "areas": [
+      "North",
+      "East",
+      "West"
+    ],
+    "officer_schedule": {
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "start": "09:00",
+      "end": "17:00",
+      "iso_weekdays": true
+    },
+    "confirmation_ttl_seconds": 600,
+    "callback_channel": "telephone_same_whatsapp_number",
+    "welcome": "Welcome to Community Access. I can help you find listed services or request a programme officer. Please do not share medical details or ID documents.",
+    "sample_environment_notice": "Sample environment: all programme and clinic information is fictional."
+  },
+  "clinics": [
+    {
+      "id": "CL-NORTH",
+      "name": "Sample North Clinic",
+      "area": "North",
+      "services": [
+        "general_consultation",
+        "child_wellness"
+      ],
+      "published_hours": "Monday to Friday, 08:00 to 16:00",
+      "timezone": "Africa/Nairobi",
+      "fees": null,
+      "insurance": null,
+      "appointment_capacity": null,
+      "medicine_stock": null,
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "directory:CL-NORTH"
+      }
+    },
+    {
+      "id": "CL-EAST",
+      "name": "Sample East Clinic",
+      "area": "East",
+      "services": [
+        "general_consultation",
+        "maternal_care"
+      ],
+      "published_hours": "Monday to Saturday, 09:00 to 17:00",
+      "timezone": "Africa/Nairobi",
+      "fees": null,
+      "insurance": null,
+      "appointment_capacity": null,
+      "medicine_stock": null,
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "directory:CL-EAST"
+      }
+    },
+    {
+      "id": "CL-WEST",
+      "name": "Sample West Clinic",
+      "area": "West",
+      "services": [
+        "general_consultation",
+        "child_wellness",
+        "maternal_care"
+      ],
+      "published_hours": "Monday to Friday, 08:30 to 16:30",
+      "timezone": "Africa/Nairobi",
+      "fees": null,
+      "insurance": null,
+      "appointment_capacity": null,
+      "medicine_stock": null,
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "directory:CL-WEST"
+      }
+    }
+  ],
+  "faqs": [
+    {
+      "id": "FAQ-01",
+      "topic": "scope",
+      "question": "What can CareLink help with?",
+      "answer": "Find published service information and request a programme officer. It cannot assess symptoms or recommend treatment.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:scope"
+      }
+    },
+    {
+      "id": "FAQ-02",
+      "topic": "coverage",
+      "question": "Which areas are listed?",
+      "answer": "The sample directory covers North, East and West. These are area labels; no nearest-clinic calculation is available.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:coverage"
+      }
+    },
+    {
+      "id": "FAQ-03",
+      "topic": "hours",
+      "question": "Do listed hours mean a clinic is open now?",
+      "answer": "Hours are published schedules. They do not confirm current opening, staffing or appointment availability.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:hours"
+      }
+    },
+    {
+      "id": "FAQ-04",
+      "topic": "fees",
+      "question": "What are the fees?",
+      "answer": "Fees are not published in this sample dataset. A programme officer may help verify them. Do not assume care is free.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:fees"
+      }
+    },
+    {
+      "id": "FAQ-05",
+      "topic": "booking",
+      "question": "Can I book an appointment?",
+      "answer": "CareLink does not book or confirm appointments in this release.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:booking"
+      }
+    },
+    {
+      "id": "FAQ-06",
+      "topic": "callbacks",
+      "question": "How do callbacks work?",
+      "answer": "Confirm a request for a telephone callback to the WhatsApp number you are using. No time is guaranteed. CareLink records the request; it does not place the call.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:callbacks"
+      }
+    },
+    {
+      "id": "FAQ-07",
+      "topic": "officers",
+      "question": "When are programme officers available?",
+      "answer": "The sample staffed hours are Monday to Friday, 09:00 to 17:00 Africa/Nairobi. A schedule does not guarantee an officer is immediately available.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:officers"
+      }
+    },
+    {
+      "id": "FAQ-08",
+      "topic": "privacy",
+      "question": "What should I share?",
+      "answer": "For service navigation use a preferred area and service category. Do not send medical details, identity documents or another person's records.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:privacy"
+      }
+    },
+    {
+      "id": "FAQ-09",
+      "topic": "clinical",
+      "question": "Can I get medical advice?",
+      "answer": "CareLink provides administrative service information. It cannot diagnose, recommend medication or assess urgency. A programme callback is not emergency care.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:clinical"
+      }
+    },
+    {
+      "id": "FAQ-10",
+      "topic": "language",
+      "question": "Which languages are supported?",
+      "answer": "English text is supported in the first release. Other languages and voice messages are outside the supported scope.",
+      "source": {
+        "version": "1",
+        "reviewed_at": "2026-11-24T09:00:00+03:00",
+        "valid_from": "2026-11-24T09:00:00+03:00",
+        "valid_until": "2026-12-01T00:00:00+03:00",
+        "status": "published",
+        "sample_data": true,
+        "id": "faq:language"
+      }
+    }
+  ]
+}
