@@ -1,0 +1,411 @@
+{
+  "schema_version": "0.1",
+  "run_id": "2026-11-25T10-16-21.224Z",
+  "commit": "53a3867aa08153a0025fdef5d99bdcebdacc32d2",
+  "dirty_tree": false,
+  "case_version": "0.2",
+  "fixture_version": "1",
+  "clock": "2026-11-25T09:00:00+03:00",
+  "seed": "synthetic-fixed-dataset",
+  "overall_gate": "incomplete",
+  "runner_exit_code": 0,
+  "runner_success": true,
+  "totals": {
+    "passed": 34,
+    "failed": 0,
+    "skipped": 0,
+    "not_run_required_variants": 26,
+    "critical_failures": 0
+  },
+  "evidence_modes": {
+    "domain": "executed",
+    "database_integration": "executed",
+    "api_integration": "executed",
+    "browser": "not_run",
+    "model_eval": "not_run",
+    "live_meta": "not_run"
+  },
+  "model": null,
+  "prompt_version": null,
+  "corpus_version": null,
+  "repeats": 1,
+  "model_cost": null,
+  "latency_scope": "test assertion durations, not production response latency",
+  "cases": [
+    {
+      "id": "AC-01",
+      "severity": "high",
+      "passed": 1,
+      "failed": 0,
+      "required_variants": 1,
+      "missing_variants": [],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-01/base lookup clarifies area and preserves source metadata",
+          "status": "passed",
+          "duration_ms": 29.999714999999924,
+          "variant": "base",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-02",
+      "severity": "high",
+      "passed": 3,
+      "failed": 0,
+      "required_variants": 5,
+      "missing_variants": [
+        "base",
+        "conflicting_current_sources"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-02/missing_fee unknown fees are not fabricated",
+          "status": "passed",
+          "duration_ms": 12.220861000000014,
+          "variant": "missing_fee",
+          "type": "database_integration"
+        },
+        {
+          "name": "[domain] AC-02/expired_source excludes invalid sources using injected time",
+          "status": "passed",
+          "duration_ms": 4.919701000000032,
+          "variant": "expired_source",
+          "type": "domain"
+        },
+        {
+          "name": "[domain] AC-02/unpublished_source excludes unpublished content",
+          "status": "passed",
+          "duration_ms": 4.24239799999998,
+          "variant": "unpublished_source",
+          "type": "domain"
+        }
+      ]
+    },
+    {
+      "id": "AC-03",
+      "severity": "critical",
+      "passed": 3,
+      "failed": 0,
+      "required_variants": 3,
+      "missing_variants": [],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-03/base preparation cannot write a callback before explicit consent",
+          "status": "passed",
+          "duration_ms": 21.87066500000003,
+          "variant": "base",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-03/forged_action_reference action payload is contact-bound",
+          "status": "passed",
+          "duration_ms": 20.610944000000018,
+          "variant": "forged_action_reference",
+          "type": "database_integration"
+        },
+        {
+          "name": "[domain] AC-03/button_confirmation_bypasses_model strict parser and exact text intents",
+          "status": "passed",
+          "duration_ms": 4.945890000000077,
+          "variant": "button_confirmation_bypasses_model",
+          "type": "domain"
+        }
+      ]
+    },
+    {
+      "id": "AC-04",
+      "severity": "critical",
+      "passed": 4,
+      "failed": 0,
+      "required_variants": 9,
+      "missing_variants": [
+        "base",
+        "decline",
+        "correct_topic_then_confirm_old_revision",
+        "button_cancel",
+        "stale_button_revision"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-04/cancel_pending cancels without creating a callback",
+          "status": "passed",
+          "duration_ms": 20.718291000000022,
+          "variant": "cancel_pending",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-04/confirmation_after_ttl expiry rejects late confirmation",
+          "status": "passed",
+          "duration_ms": 18.090287999999987,
+          "variant": "confirmation_after_ttl",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-04/mixed_yes_with_correction invalidates old proposal without consenting",
+          "status": "passed",
+          "duration_ms": 24.570437000000084,
+          "variant": "mixed_yes_with_correction",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-04/cancel_queued does not override officer ownership",
+          "status": "passed",
+          "duration_ms": 23.669059999999945,
+          "variant": "cancel_queued",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-05",
+      "severity": "critical",
+      "passed": 6,
+      "failed": 0,
+      "required_variants": 8,
+      "missing_variants": [
+        "base",
+        "existing_active_request"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-05/same_event_replay concurrent webhook duplicates persist one event",
+          "status": "passed",
+          "duration_ms": 23.04551200000003,
+          "variant": "same_event_replay",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-05/distinct_events_concurrent_confirmation one active callback for competing confirmations",
+          "status": "passed",
+          "duration_ms": 38.2459429999999,
+          "variant": "distinct_events_concurrent_confirmation",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-05/stale_worker_completion reclaimed lease fences stale completion",
+          "status": "passed",
+          "duration_ms": 17.30153099999984,
+          "variant": "stale_worker_completion",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-05/per_conversation_sequence only the next event is claimed",
+          "status": "passed",
+          "duration_ms": 22.104016,
+          "variant": "per_conversation_sequence",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-05/transactional_outbox_crash domain failure rolls back callback and outbox together",
+          "status": "passed",
+          "duration_ms": 27.917142000000013,
+          "variant": "transactional_outbox_crash",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-05/processing_lease_expiry heartbeat cannot resurrect an expired lease",
+          "status": "passed",
+          "duration_ms": 8.109051000000136,
+          "variant": "processing_lease_expiry",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-06",
+      "severity": "critical",
+      "passed": 5,
+      "failed": 0,
+      "required_variants": 8,
+      "missing_variants": [
+        "generation_claim_dispatch_race",
+        "polling_two_tabs",
+        "poll_error_and_refocus"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-06/two_operator_claims exactly one officer claims",
+          "status": "passed",
+          "duration_ms": 24.183454999999867,
+          "variant": "two_operator_claims",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-06/claim_commits_before_dispatch suppresses stale reply and late generation",
+          "status": "passed",
+          "duration_ms": 35.44870399999991,
+          "variant": "claim_commits_before_dispatch",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-06/send_holds_lock_before_claim claim cannot complete during provider send",
+          "status": "passed",
+          "duration_ms": 27.90840900000012,
+          "variant": "send_holds_lock_before_claim",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-06/resolved_without_return_to_automation resolve requires explicit resume",
+          "status": "passed",
+          "duration_ms": 32.99189299999989,
+          "variant": "resolved_without_return_to_automation",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-06/base idempotent claim and officer reply remain version guarded",
+          "status": "passed",
+          "duration_ms": 22.457998999999973,
+          "variant": "base",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-07",
+      "severity": "critical",
+      "passed": 3,
+      "failed": 0,
+      "required_variants": 8,
+      "missing_variants": [
+        "base",
+        "log_marker_capture",
+        "expiry_during_human_ownership",
+        "aggregate_without_identifiers",
+        "restore_expiry_reconciliation"
+      ],
+      "evidence": [
+        {
+          "name": "[api_integration] AC-07/contact_B_guesses_contact_A_request denies cross-contact reads",
+          "status": "passed",
+          "duration_ms": 99.34789300000011,
+          "variant": "contact_B_guesses_contact_A_request",
+          "type": "api_integration"
+        },
+        {
+          "name": "[api_integration] AC-07/operator_role_access another officer cannot inspect claimed text",
+          "status": "passed",
+          "duration_ms": 23.05288399999995,
+          "variant": "operator_role_access",
+          "type": "api_integration"
+        },
+        {
+          "name": "[database_integration] AC-07/purge_protected_fields expiry removes content and preserves bounded deduplication",
+          "status": "passed",
+          "duration_ms": 17.220708999999943,
+          "variant": "purge_protected_fields",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-08",
+      "severity": "critical",
+      "passed": 1,
+      "failed": 0,
+      "required_variants": 3,
+      "missing_variants": [
+        "base",
+        "retrieved_document_injection"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-08/user_message_injection cannot create unconfirmed callback",
+          "status": "passed",
+          "duration_ms": 10.708575999999994,
+          "variant": "user_message_injection",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-09",
+      "severity": "critical",
+      "passed": 1,
+      "failed": 0,
+      "required_variants": 3,
+      "missing_variants": [
+        "base",
+        "human_active_clinical_message"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-09/automated_multi_turn deterministic boundary survives repeated medication request",
+          "status": "passed",
+          "duration_ms": 14.5628099999999,
+          "variant": "automated_multi_turn",
+          "type": "database_integration"
+        }
+      ]
+    },
+    {
+      "id": "AC-10",
+      "severity": "critical",
+      "passed": 7,
+      "failed": 0,
+      "required_variants": 12,
+      "missing_variants": [
+        "base",
+        "model_timeout",
+        "directory_timeout",
+        "callback_commit_failure",
+        "purge_twice"
+      ],
+      "evidence": [
+        {
+          "name": "[database_integration] AC-10/outbound_acceptance_unknown timeout is quarantined without resend",
+          "status": "passed",
+          "duration_ms": 14.299249000000145,
+          "variant": "outbound_acceptance_unknown",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-10/dispatch_crash_before_result_persisted recovery never blindly resends",
+          "status": "passed",
+          "duration_ms": 13.265588999999864,
+          "variant": "dispatch_crash_before_result_persisted",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-10/out_of_order_status receipts cannot downgrade delivery",
+          "status": "passed",
+          "duration_ms": 14.000975000000153,
+          "variant": "out_of_order_status",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-10/purge_during_generation late generation cannot recreate expired content",
+          "status": "passed",
+          "duration_ms": 13.320101000000022,
+          "variant": "purge_during_generation",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-10/purge_blocks_recovered_job fences a leased job after purge",
+          "status": "passed",
+          "duration_ms": 11.295475000000124,
+          "variant": "purge_blocks_recovered_job",
+          "type": "database_integration"
+        },
+        {
+          "name": "[database_integration] AC-10/worker_dead_letter fifth expired lease does not block following input",
+          "status": "passed",
+          "duration_ms": 14.269889000000148,
+          "variant": "worker_dead_letter",
+          "type": "database_integration"
+        },
+        {
+          "name": "[api_integration] AC-10/inbound_commit_failure failed persistence never acknowledges durable receipt",
+          "status": "passed",
+          "duration_ms": 10.50934200000006,
+          "variant": "inbound_commit_failure",
+          "type": "api_integration"
+        }
+      ]
+    }
+  ],
+  "database": {
+    "server_version": "17.12"
+  }
+}
